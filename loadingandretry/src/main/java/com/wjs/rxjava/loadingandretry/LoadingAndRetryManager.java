@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class LoadingAndRetryManager {
-    LoadingAndRetryLayout loadingAndRetryLayout;
-    public LoadingAndRetryManager(Object activityOrFragmentOrView,LoadingAndRetryConfig config){
+    private LoadingAndRetryLayout loadingAndRetryLayout;
+    public LoadingAndRetryManager(Object activityOrFragmentOrView, LoadingAndRetryConfig config){
         ViewGroup contentParent=null;
         Context context;
         if(activityOrFragmentOrView instanceof Activity){
@@ -45,7 +45,7 @@ public class LoadingAndRetryManager {
         loadingAndRetryLayout=new LoadingAndRetryLayout(context);
         ViewGroup.LayoutParams lp=oldContent.getLayoutParams();
         contentParent.addView(loadingAndRetryLayout,index,lp);
-        loadingAndRetryLayout.setRetryView(config.getRetryLayoutId());
+        View retryView=loadingAndRetryLayout.setRetryView(config.getRetryLayoutId());
         loadingAndRetryLayout.setLoadingView(config.getLoadingViewId());
         loadingAndRetryLayout.setEmptyView(config.getEmtpyLayoutId());
         loadingAndRetryLayout.setContentView(oldContent);
@@ -62,5 +62,9 @@ public class LoadingAndRetryManager {
     }
     public void showEmpty(){
         loadingAndRetryLayout.showEmpty();
+    }
+
+    public LoadingAndRetryLayout getLoadingAndRetryLayout() {
+        return loadingAndRetryLayout;
     }
 }

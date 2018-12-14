@@ -5,7 +5,6 @@ public class LoadingAndRetryConfig {
     private int loadingViewId=NO_SETUP;
     private int retryLayoutId=NO_SETUP;
     private int emtpyLayoutId=NO_SETUP;
-
     public int getLoadingViewId() {
         return loadingViewId;
     }
@@ -29,4 +28,5 @@ public class LoadingAndRetryConfig {
     public void setEmtpyLayoutId(int emtpyLayoutId) {
         this.emtpyLayoutId = emtpyLayoutId;
     }
+
 }
